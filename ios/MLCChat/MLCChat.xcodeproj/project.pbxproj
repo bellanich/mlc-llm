@@ -407,7 +407,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MLCChat/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FR42MXLK9;
+				DEVELOPMENT_TEAM = 54MQ86G3Q3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"HEADER_SEARCH_PATHS[arch=*]" = "";
@@ -438,7 +438,7 @@
 					"-lsentencepiece",
 					"-ltokenizers_c",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mlc.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = "bellanich.pocket-llm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -460,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MLCChat/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FR42MXLK9;
+				DEVELOPMENT_TEAM = 54MQ86G3Q3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"HEADER_SEARCH_PATHS[arch=*]" = "";
@@ -491,7 +491,7 @@
 					"-lsentencepiece",
 					"-ltokenizers_c",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mlc.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = "bellanich.pocket-llm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

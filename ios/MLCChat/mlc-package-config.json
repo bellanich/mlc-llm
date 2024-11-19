@@ -8,6 +8,12 @@
             "overrides": {
                 "prefill_chunk_size": 128
             }
+        },
+        {
+            "model": "HF://nlpconnect/vit-gpt2-image-captioning",
+            "model_id": "vit-gpt2-image-captioning",
+            "estimated_vram_bytes": 3000000000
         }
+
     ]
 }
