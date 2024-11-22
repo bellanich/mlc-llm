@@ -2,7 +2,7 @@
 name = "mlc-llm"
 version = "0.1.0"
 description = ""
-authors = ["Bella Nicholson <nicholsonbella@gmail.com>"]
+authors = ["Bella Nicholson <bellanich.software@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
