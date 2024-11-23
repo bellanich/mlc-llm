@@ -38,7 +38,7 @@ final class ChatState: ObservableObject {
     @Published var displayName = ""
     // this is a legacy UI option for upload image
     // TODO(mlc-team) support new UI for image processing
-    @Published var legacyUseImage = false
+    @Published var legacyUseImage = true
 
     private let modelChatStateLock = NSLock()
     private var modelChatState: ModelChatState = .ready
