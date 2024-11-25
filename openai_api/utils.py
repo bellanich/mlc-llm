@@ -2,7 +2,15 @@ import base64
 from io import BytesIO
 from PIL import Image
 
+from mlc_llm import MLCEngine
+from mlc_llm.serve.config import EngineConfig
 
+from openai_api.constants import IMAGE_ANNOTATION_LIMIT, VISION_MODEL_URL
+
+
+# -------------------
+#  Helper Functions
+# -------------------
 def img_as_str(image_path: str) -> str:
     """Load img and convert it into a str
 
@@ -19,3 +27,43 @@ def img_as_str(image_path: str) -> str:
 
     img_str = base64.b64encode(buffered.getvalue())
     return "data:image/jpeg;base64," + img_str.decode("ascii")
+
+
+# -------------------
+#  Main Function
+# -------------------
+def describe_image(image_path: str) -> str:
+    """Use quantized llava one vision model to describe image
+
+    Args:
+        image_path (str): local filepath of image
+
+    Returns:
+        str: description of image contents
+    """
+    model = VISION_MODEL_URL
+    engine = MLCEngine(
+        model,
+        mode="local",
+        engine_config=EngineConfig(prefill_chunk_size=832,),
+    )
+
+    # Run chat completion in OpenAI API.
+    counter, results = 0, ""
+    for response in engine.chat.completions.create(
+        messages=[
+            {"role": "user",
+            "content": [
+                {"type": "text", "text": "Annotate the image."},
+                {"type": "image_url", "image_url": img_as_str(image_path)}
+            ]}
+        ],
+        model=model,
+        stream=True,
+    ):
+        for choice in response.choices:
+            results += choice.delta.content
+        counter += 1
+        if counter > IMAGE_ANNOTATION_LIMIT:
+            break
+    return results
