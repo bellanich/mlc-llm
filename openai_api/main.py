@@ -12,11 +12,13 @@ engine = MLCEngine(
 )
 
 # Run chat completion in OpenAI API.
+counter = 0
+LIMIT = 50
 for response in engine.chat.completions.create(
     messages=[
         {"role": "user",
          "content": [
-            {"type": "text", "text": "What is in this image? Keep your answer brief."},
+            {"type": "text", "text": "Annotate the image."},
             {"type": "image_url", "image_url": img_as_str("openai_api/images/cat.jpg")}
         ]}
     ],
@@ -25,6 +27,9 @@ for response in engine.chat.completions.create(
 ):
     for choice in response.choices:
         print(choice.delta.content, end="", flush=True)
+    counter += 1
+    if counter > LIMIT:
+        break
 print("\n")
 
 engine.terminate()
