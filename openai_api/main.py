@@ -1,18 +1,24 @@
-from openai_api.utils import describe_image
+from openai_api.describe_image import describe_image
 
+# TODO: detect if img
 def simple_chatbot():
     print("Hello! I'm a multi-modal chatbot. Type something and I'll respond. Type 'exit' to leave the chat.")
     while True:
         user_input = input("You: ")
         if user_input.lower() == 'exit':
-            # TODO: get user response
+            # TODO: extact img filepath
             print("Chatbot: Goodbye! Have a great day!")
             break
         else:
             print(f"Chatbot: You said '{user_input}'. That's interesting!")
 
-# Run the chatbot
+
 if __name__ == "__main__":
+    # TODOs
+    # (1) Write simple unit tests for describe_image() + helper funcs
+    # (2) Separate image filepath from rest of user input
+    # (3) Feed image_filepath -> describe_image() --> image_description --> gemma
+
+    # How to generate description of image from image_filepath
     image_path = "openai_api/images/cat.jpg"
     image_description = describe_image(image_path)
-    print(image_description)

@@ -1,6 +1,6 @@
 from mlc_llm import MLCEngine
 from mlc_llm.serve.config import EngineConfig
-from openai_api.utils import img_as_str
+from openai_api.describe_image import img_as_str
 
 
 # Create engine

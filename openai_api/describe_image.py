@@ -29,6 +29,13 @@ def img_as_str(image_path: str) -> str:
     return "data:image/jpeg;base64," + img_str.decode("ascii")
 
 
+def clean_results(results: str) -> str:
+    tags = ["<|im_start|>assistant", "<|im_end|>"]
+    for tag in tags:
+        results = results.replace(tag, "")
+    return results
+
+
 # -------------------
 #  Main Function
 # -------------------
@@ -48,7 +55,7 @@ def describe_image(image_path: str) -> str:
         engine_config=EngineConfig(prefill_chunk_size=832,),
     )
 
-    # Run chat completion in OpenAI API.
+    # Run chat completion in OpenAI API
     counter, results = 0, ""
     for response in engine.chat.completions.create(
         messages=[
@@ -63,7 +70,9 @@ def describe_image(image_path: str) -> str:
     ):
         for choice in response.choices:
             results += choice.delta.content
+        # Prevent chat bot from talking too much
         counter += 1
         if counter > IMAGE_ANNOTATION_LIMIT:
             break
-    return results
+
+    return clean_results(results)
