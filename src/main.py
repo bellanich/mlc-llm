@@ -1,4 +1,4 @@
-from openai_api.describe_image import describe_image
+from src.describe_image import describe_image
 
 # TODO: detect if img
 def simple_chatbot():
@@ -20,5 +20,6 @@ if __name__ == "__main__":
     # (3) Feed image_filepath -> describe_image() --> image_description --> gemma
 
     # How to generate description of image from image_filepath
-    image_path = "openai_api/images/cat.jpg"
+    image_path = "src/images/cat.jpg"
     image_description = describe_image(image_path)
+    print(image_description)

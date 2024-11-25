@@ -5,7 +5,7 @@ from PIL import Image
 from mlc_llm import MLCEngine
 from mlc_llm.serve.config import EngineConfig
 
-from openai_api.constants import IMAGE_ANNOTATION_LIMIT, VISION_MODEL_URL
+from src.constants import IMAGE_ANNOTATION_LIMIT, VISION_MODEL_URL
 
 
 # -------------------
